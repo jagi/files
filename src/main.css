@@ -1,0 +1,30 @@
+html,
+html[mode="light"] {
+  --hue: 330;
+  --bg-color: #eee;
+  --text-color: #222;
+  --link-color: var(--primary-color);
+  --primary-color: hsl(var(--hue), 100%, 50%);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --bg-color: #222;
+    --text-color: #eee;
+    --link-color: var(--primary-color);
+  }
+}
+
+html[mode="dark"] {
+  --bg-color: #222;
+  --text-color: #eee;
+  --link-color: var(--primary-color);
+}
