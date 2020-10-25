@@ -10,8 +10,16 @@ jobs:
   firebase-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm run build
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+        with:
+          node-version: "15.x"
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
