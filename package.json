@@ -1,7 +1,6 @@
 {
   "name": "file-system-api",
   "version": "1.0.0",
-  "main": "index.html",
   "license": "MIT",
   "scripts": {
     "build": "parcel build src/index.html --dist-dir build",

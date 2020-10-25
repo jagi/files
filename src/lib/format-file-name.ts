@@ -13,7 +13,12 @@ export async function formatFileName(
   const data = await readFromFile(file, size);
   const { load } = await import("exifreader");
   const tags = load(data);
-  if (tags?.DateTimeOriginal?.value?.[0] === undefined) {
+  if (
+    tags !== undefined &&
+    tags.DateTimeOriginal !== undefined &&
+    tags.DateTimeOriginal.value !== undefined &&
+    tags.DateTimeOriginal.value[0] === undefined
+  ) {
     return file.name;
   }
   const shootingDate = parseExifDate(tags.DateTimeOriginal.value[0]);
