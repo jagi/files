@@ -5,8 +5,8 @@ import { Directories } from "./directories";
 import { Files } from "./files";
 import { FlattenButton } from "./flatten-button";
 import { OpenButton } from "./open-button";
-import { Path } from "./path";
 import { RenameButton } from "./rename-button";
+import { Toolbar } from "./toolbar";
 
 const classes = addRules({
   app: {
@@ -15,13 +15,6 @@ const classes = addRules({
     height: "100%",
     position: "absolute",
     width: "100%",
-    "& header, & footer": {
-      flex: "none",
-    },
-    "& header": {
-      display: "flex",
-      "flex-direction": "row",
-    },
     "& main": {
       flex: "auto",
       overflow: "auto",
@@ -45,17 +38,10 @@ export function App(this: Context): Element {
         <Directories />
       </div>
       <div class={classes.content}>
-        <header>
-          <Path />
-        </header>
+        <Toolbar />
         <main>
           <Files />
         </main>
-        <footer>
-          <OpenButton />
-          <RenameButton />
-          <FlattenButton />
-        </footer>
       </div>
     </div>
   );

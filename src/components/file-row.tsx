@@ -15,7 +15,7 @@ interface Props {
 const classes = addRules({
   file: {
     "&.selected > td": {
-      background: "var(--primary-color)",
+      "background-color": "var(--highlight-color)",
     },
   },
 });

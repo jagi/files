@@ -12,7 +12,7 @@ const classes = addRules({
       "user-select": "none",
     },
     "& th": {
-      "font-weight": "bold",
+      "font-weight": 500,
     },
   },
 });

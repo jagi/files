@@ -10,7 +10,7 @@ const classes = addRules({
     padding: "4px 8px",
     "user-select": "none",
     "&.selected": {
-      background: "var(--primary-color)",
+      "background-color": "var(--highlight-color)",
     },
   },
 });

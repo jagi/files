@@ -5,6 +5,7 @@ import { flattenDirectory } from "../lib/flatten-directory";
 import { isDirectory } from "../lib/is-directory";
 import { isFile } from "../lib/is-file";
 import { Button } from "./button";
+import { FlattenIcon } from "./flatten-icon";
 
 export function FlattenButton(this: Context): Element {
   const currDirectory = this.consume("currDirectory");
@@ -36,7 +37,8 @@ export function FlattenButton(this: Context): Element {
 
   return (
     <Button disabled={disabled}>
-      {selectedDirectories.length > 0 ? "FLATTEN SELECTED" : "FLATTEN ALL"}
+      <FlattenIcon />
+      {selectedDirectories.length > 0 ? "Flatten selected" : "Flatten all"}
     </Button>
   );
 }

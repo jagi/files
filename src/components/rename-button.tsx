@@ -5,6 +5,7 @@ import { isDirectory } from "../lib/is-directory";
 import { isFile } from "../lib/is-file";
 import { renameFile } from "../lib/rename-file";
 import { Button } from "./button";
+import { RenameIcon } from "./rename-icon";
 
 export function RenameButton(this: Context): Element {
   const currDirectory = this.consume("currDirectory");
@@ -35,7 +36,8 @@ export function RenameButton(this: Context): Element {
 
   return (
     <Button disabled={disabled}>
-      {selectedFiles.length > 0 ? "RENAME SELECTED" : "RENAME ALL"}
+      <RenameIcon />
+      {selectedFiles.length > 0 ? "Rename selected" : "Rename all"}
     </Button>
   );
 }

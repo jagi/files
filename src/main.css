@@ -5,26 +5,21 @@ html[mode="light"] {
   --text-color: #222;
   --link-color: var(--primary-color);
   --primary-color: hsl(var(--hue), 100%, 50%);
+  --highlight-color: rgba(0, 0, 0, 0.04);
 }
 
 body {
   background: var(--bg-color);
   color: var(--text-color);
   font-family: "Roboto", sans-serif;
+  font-weight: 400;
   margin: 0;
   padding: 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    --bg-color: #222;
-    --text-color: #eee;
-    --link-color: var(--primary-color);
-  }
 }
 
 html[mode="dark"] {
   --bg-color: #222;
   --text-color: #eee;
   --link-color: var(--primary-color);
+  --highlight-color: rgba(255, 255, 255, 0.08);
 }
