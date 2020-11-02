@@ -7,7 +7,7 @@ import { addRules } from "../lib/styles";
 const classes = addRules({
   directory: {
     margin: 1,
-    padding: "4px 8px",
+    padding: [6, 8],
     "user-select": "none",
     "&.selected": {
       "background-color": "var(--highlight-color)",

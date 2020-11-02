@@ -24,21 +24,20 @@ export function FileRow(this: Context, props: Props): Children {
   const { children, fileOrDirectory, selected } = props;
 
   this.addEventListener("click", async (event) => {
+    event.preventDefault();
     let mode: SelectFileMode;
     if (event.metaKey || event.ctrlKey) {
       mode = "ONE";
     } else if (event.shiftKey) {
       mode = "UP_TO";
     } else {
+      if (selected && isDirectory(fileOrDirectory)) {
+        this.dispatchEvent(new OpenDirectoryEvent(fileOrDirectory));
+        return;
+      }
       mode = "REPLACE";
     }
     this.dispatchEvent(new SelectFileEvent(fileOrDirectory, mode));
-  });
-
-  this.addEventListener("dblclick", async () => {
-    if (isDirectory(fileOrDirectory)) {
-      this.dispatchEvent(new OpenDirectoryEvent(fileOrDirectory));
-    }
   });
 
   return (

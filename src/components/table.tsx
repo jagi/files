@@ -8,7 +8,7 @@ const classes = addRules({
     "border-collapse": "collapse",
     width: "100%",
     "& td, & th": {
-      padding: ".25rem .5rem",
+      padding: [6, 8],
       "user-select": "none",
     },
     "& th": {

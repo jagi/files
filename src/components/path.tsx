@@ -4,27 +4,23 @@ import clsx from "clsx";
 import { OpenDirectoryEvent } from "../events/open-directory-event";
 import { getParentDirectories } from "../lib/parents";
 import { addRules } from "../lib/styles";
+import { PathSeparatorIcon } from "./path-separator-icon";
 
 const classes = addRules({
   path: {
+    "align-items": "center",
     display: "flex",
     "flex-direction": "row",
     "list-style": "none",
     margin: 8,
     padding: 0,
   },
-  pathSegment: {
-    "margin-right": 8,
-    "&.clickable a": {
-      color: "var(--link-color)",
-      cursor: "pointer",
-      "&:active, &:hover": {
-        "text-decoration": "underline",
-      },
-    },
-  },
+  pathSegment: {},
   pathSeparator: {
-    "margin-right": 8,
+    "& > svg": {
+      display: "block",
+      fill: "var(--link-color)",
+    },
   },
 });
 
@@ -61,18 +57,23 @@ function PathSegment(this: Context, props: PathSegmentProps): Element {
   const { clickable, directory } = props;
 
   if (clickable) {
-    this.addEventListener("click", async () => {
+    this.addEventListener("click", async (event) => {
+      event.preventDefault();
       this.dispatchEvent(new OpenDirectoryEvent(directory));
     });
   }
 
   return (
     <li class={clsx(classes.pathSegment, { clickable })}>
-      <a>{directory.name}</a>
+      <a href={clickable ? "#" : undefined}>{directory.name}</a>
     </li>
   );
 }
 
 function PathSeparator(): Element {
-  return <li class={classes.pathSeparator}>{">"}</li>;
+  return (
+    <li class={classes.pathSeparator}>
+      <PathSeparatorIcon />
+    </li>
+  );
 }

@@ -5,8 +5,6 @@ import { App } from "./components/app";
 import { State } from "./components/state";
 import "./lib/styles";
 
-import "./main.css";
-
 const root = document.getElementById("root");
 if (root !== null) {
   renderer.render(
